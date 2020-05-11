@@ -25,9 +25,9 @@ int main()
 
 	}*/
 
-#include<stdio.h>
+/*#include<stdio.h>
 int main()
 {
 	printf("Hellow World");
 	return 0;
-}
+}*/
