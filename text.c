@@ -31,3 +31,17 @@ int main()
 	printf("Hellow World");
 	return 0;
 }*/
+#include<stdlib.h>
+int main()
+{
+	int a = 9;
+	int* p1;
+	int** p2 = &p1;
+	p1 = &a;
+	printf("%d\n", **p2);
+	printf("%p\t%p\t%p\n", p2, p1, &a);
+	printf("%p\t%p\t%p\n", **p2, *p2, &p1);
+	printf("%p\t%p\t%p\n", &**p2, &*p2, &p2);
+	printf("%p\t%p\t%p\n", p2, *p2, &p2);
+	return 0;
+}
