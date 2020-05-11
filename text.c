@@ -1,5 +1,5 @@
 
-#include<stdio.h>
+/*#include<stdio.h>
 void counter(int);
 int main()
 {
@@ -23,4 +23,11 @@ int main()
 		subTotal++;
 		printf("counter函数被调用了%d次\n", subTotal);
 
-	}
+	}*/
+
+#include<stdio.h>
+int main()
+{
+	printf("Hellow World");
+	return 0;
+}
