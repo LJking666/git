@@ -89,21 +89,56 @@ int main()
 #include<stdlib.h>
 #define N 5
 //小型的学生成绩管理系统
-void input(double[]);
+void input(double[]);//录入，排序，打印
 void sort(double[]);
 void show(double[]);
-
 int main()
 {
-	double scores[N];//录入，排序，打印
+	double scores[N];
+	input(scores);
+	printf("排序前：\n");
+	show(scores);
+	sort(scores);
+	printf("排序后：\n");
+	show(scores);
 	return 0;
 }
-void intput(double scores[])
+void input(double scores[])
 {
 	int i;
 	for (i = 0; i < N; i++)
 	{
-		printf("请输入第%d门课的1成绩：", i+1);
-		scanf_s("lf", &scores[i]);
+		printf("请输入第%d门课的成绩：", i+1);
+		scanf_s("%lf", &scores[i]);
+		//scanf_s("%lf",(scores+i));
 	}
+}
+void sort(double scores[])
+{
+	int i, j;
+	double temp;
+	for (i = 0; i < N - 1; i++)
+	{
+		for(j=0;j<N-i-1;j++)
+			if (*(scores + j) > scores[j + 1])
+			{
+				temp = scores[j];
+				scores[j] = scores[j + 1];
+				scores[j + 1] = temp;
+			}
+	}
+}
+
+void show(double score[])
+{
+	int i;
+	printf("*********************\n");
+	printf("语文\t数学\t英语\t物理\t化学\n");
+	printf("*********************\n");
+	for (i = 0; i < N; i++)
+	{
+		printf("%.2lf\t", score[i]);
+		//printf("%.2lf\t", *(score + i));
+	}
+	printf("\n*********************\n");
 }
