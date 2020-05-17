@@ -92,8 +92,12 @@ int main()
 void input(double[]);//录入，排序，打印
 void sort(double[]);
 void show(double[]);
+int find(double*, int findnum);
 int main()
 {
+	double sz[] = { 2,8,9,8,5,7,6 };
+	printf("数组元素的个数为：%d\n", sizeof(sz)/sizeof(sz[0]));
+	double findnum;
 	double scores[N];
 	input(scores);
 	printf("排序前：\n");
@@ -101,6 +105,12 @@ int main()
 	sort(scores);
 	printf("排序后：\n");
 	show(scores);
+	printf("请输入要查找下标的数字\n");
+	scanf_s("%lf", &findnum);
+	if (find(scores, findnum) == -1)
+		printf("您要查找的数字不存在，玩我了，靠\n");
+	else
+		printf("您要查找的数字下标为：%d\n", find(scores, findnum));
 	return 0;
 }
 void input(double scores[])
@@ -129,7 +139,7 @@ void sort(double scores[])
 	}
 }
 
-void show(double score[])
+void show(double scores[])
 {
 	int i;
 	printf("*********************\n");
@@ -137,8 +147,23 @@ void show(double score[])
 	printf("*********************\n");
 	for (i = 0; i < N; i++)
 	{
-		printf("%.2lf\t", score[i]);
+		printf("%.2lf\t", scores[i]);
 		//printf("%.2lf\t", *(score + i));
 	}
 	printf("\n*********************\n");
+}
+
+int find(double*scores, int findnum)
+{
+	int findindex = -1;
+	int i;
+	for (i = 0; i < N; i++)
+	{
+		if (findnum == scores[i])
+		{
+			findindex = i;
+			break;
+		}		
+	}
+	return findindex;
 }
