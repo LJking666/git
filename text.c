@@ -85,7 +85,7 @@ int main()
 	return 0;
 }*/
 
-#include<stdio.h>
+/*#include<stdio.h>
 #include<stdlib.h>
 #define N 5
 //小型的学生成绩管理系统
@@ -166,4 +166,49 @@ int find(double*scores, int findnum)
 		}		
 	}
 	return findindex;
+}*/
+
+
+/*#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+	char names1[] = { 'j','a','c','k','\0' };
+	char names2[50] = "jack";
+	printf("%d\n", sizeof(names1));
+	printf("%d\n", sizeof(names2));
+	printf("%s\n", names1);
+	printf("%s\n", names2);
+	printf("请输入新的名称\n");
+	scanf_s("%s", names2);
+	printf("%s", names2);
+	return 0;
+}*/
+#include<stdio.h>
+#include<stdlib.h>		//codelock可行，vs未解决
+#include<string.h>
+int main()
+{
+	void cp(char*, int);
+	char a[100];
+	int m;
+	printf("请输入一个字符串:");
+	gets(a);                    //gets(shuzu)输入字符串
+	printf("请确定起点m:");
+	scanf_s("%d", &m);
+	if (m > strlen(a))
+	{
+		printf("m太大!");
+		return 0;
+	}
+	cp(a, m);
+	return 0;
+}
+void cp(char* p, int m)
+{
+	char b[100];
+	p = p + m;
+	strcpy(b, p);                //strcopy(sz1,sz2)  把数组(sz)p赋给数组b
+	puts(b);                    //puts(sz)          
 }
